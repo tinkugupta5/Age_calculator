@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stepper, Step, StepLabel, Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Switch, FormControlLabel } from '@mui/material';
+import { Stepper, Step, StepLabel, Button, Typography, TextField, FormControlLabel, Switch, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import axios from 'axios';
 
 const steps = ['Step 1', 'Step 2', 'Step 3'];
@@ -10,6 +10,8 @@ const initialFormData = {
   address: '',
   projectName: '',
   accessPermission: false,
+  alarmAccess: false,
+  readAccess: false,
   userType: '',
   age: '',
 };
@@ -108,6 +110,26 @@ const FormComponent = () => {
                 />
               }
               label="Dashboard Access Permission"
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  name="alarmAccess"
+                  checked={formData.alarmAccess}
+                  onChange={handleChange}
+                />
+              }
+              label="Alarm Access"
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  name="readAccess"
+                  checked={formData.readAccess}
+                  onChange={handleChange}
+                />
+              }
+              label="Read Access"
             />
             <TextField
               label="Age"
