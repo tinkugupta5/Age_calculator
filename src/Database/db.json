@@ -1,44 +1,46 @@
 {
   "data": [
     {
-      "firstName": "ss",
-      "lastName": "ss",
-      "address": "ss",
-      "projectName": "ss",
-      "age": "ss",
+      "firstName": "s",
+      "lastName": "s",
+      "address": "s",
+      "projectName": "s",
+      "userType": "internal",
+      "age": "sssss",
+      "permissions": {
+        "accessPermission": true,
+        "alarmAccess": true,
+        "readAccess": true
+      },
       "id": 1
     },
     {
-      "firstName": "aa",
-      "lastName": "aa",
-      "address": "ss",
-      "projectName": "ll",
-      "accessPermission": true,
-      "userType": "",
-      "age": "66",
+      "firstName": "s",
+      "lastName": "s",
+      "address": "s",
+      "projectName": "s",
+      "userType": "internal",
+      "age": "ss",
+      "permissions": {
+        "accessPermission": true,
+        "alarmAccess": true,
+        "readAccess": true
+      },
       "id": 2
     },
     {
-      "firstName": "3",
-      "lastName": "4",
-      "address": "4",
-      "projectName": "4",
-      "accessPermission": true,
+      "firstName": "d",
+      "lastName": "d",
+      "address": "d",
+      "projectName": "d",
       "userType": "external",
-      "age": "56",
+      "age": "d",
+      "permissions": {
+        "accessPermission": true,
+        "alarmAccess": true,
+        "readAccess": true
+      },
       "id": 3
-    },
-    {
-      "firstName": "ff",
-      "lastName": "ff",
-      "address": "ff",
-      "projectName": "ff",
-      "accessPermission": true,
-      "alarmAccess": true,
-      "readAccess": true,
-      "userType": "internal",
-      "age": "21",
-      "id": 4
     }
   ]
 }
