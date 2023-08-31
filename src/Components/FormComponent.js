@@ -11,6 +11,7 @@ const initialFormData = {
   projectName: '',
   userType: '',
   age: '',
+  image:null,
   permissions: {
     accessPermission: false,
     alarmAccess: false,
@@ -31,9 +32,22 @@ const FormComponent = () => {
   };
 
   const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
+    const { name, value, type, checked,files } = event.target;
+
+    if (name === 'image') {
+        if (files && files[0]) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            setFormData((prevData) => ({
+              ...prevData,
+              [name]: e.target.result,
+            }));
+          };
+          reader.readAsDataURL(files[0]);
+        }
+      } 
   
-    if (name.startsWith('permissions')) {
+    else if (name.startsWith('permissions')) {
       const permissionName = name.split('.')[1];
       setFormData((prevData) => ({
         ...prevData,
@@ -53,8 +67,13 @@ const FormComponent = () => {
   
 
   const handleSubmit = ({ onSubmitSuccess }) => {
+
+    const formDataWithBase64 = {
+        ...formData,
+        image: formData.image ? formData.image.split(',')[1] : null,
+      };
     // Submit form data to JSON server using Axios
-    axios.post('http://localhost:3002/data', formData)
+    axios.post('http://localhost:3002/data', formDataWithBase64)
       .then((response) => {
         console.log('Form data submitted:', response.data);
         setFormData(initialFormData); // Reset form values
@@ -72,6 +91,12 @@ const FormComponent = () => {
       case 0:
         return (
           <div>
+             <input
+        type="file"
+        accept=".png, .jpg, .jpeg"
+        name="image"
+        onChange={handleChange}
+      />
             <TextField
               label="First Name"
               name="firstName"
